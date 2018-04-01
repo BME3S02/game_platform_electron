@@ -1,0 +1,9 @@
+[submodule "static/games/javascript-breakout"]
+	path = static/games/javascript-breakout
+	url = git@github.com:BME3S02/game_platform_breakout.git
+[submodule "static/games/javascript-pong"]
+	path = static/games/javascript-pong
+	url = git@github.com:BME3S02/game_platform_pong.git
+[submodule "static/games/javascript-racer"]
+	path = static/games/javascript-racer
+	url = git@github.com:BME3S02/game_platform_racer.git
