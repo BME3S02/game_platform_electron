@@ -1,0 +1,2 @@
+webpack
+electron-packager . outrun --overwrite --asar --platform=win32 --arch=x64 --prune=true --out=release-builds --version-string.CompanyName="Department of Biomedical Engineering - PolyU" --version-string.ProductName="BME Rehabilitation"

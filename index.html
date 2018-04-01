@@ -1,0 +1,147 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>BME3S02-Game Rehabilitation</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="css/freelacer.min.css" rel="stylesheet" type="text/css" /> -->
+  <link href="css/common.css" rel="stylesheet" type="text/css" />
+
+
+  <!-- <link href="css/controlpanel.css" rel="stylesheet" type="text/css" /> -->
+
+
+  <!-- Custom Fonts -->
+  <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <style media="screen">
+    body {
+      padding: 30px;
+    }
+    canvas{
+      -ms-overflow-style: scrollbar;
+      -webkit-app-region:drag;
+    }
+  </style>
+</head>
+
+<body style="margin: 0; height: 100%; overflow: hidden">
+
+
+<div class="row">
+  <div class="col-md-7">
+    <div id="racer">
+      <div id="hud" style="width:640px">
+        <span id="speed"            class="hud"><span id="speed_value" class="value">0</span> mph</span>
+        <span id="current_lap_time" class="hud">時間: <span id="current_lap_time_value" class="value">0.0</span></span>
+        <span id="last_lap_time"    class="hud">Last Lap: <span id="last_lap_time_value" class="value">0.0</span></span>
+      </div>
+      <div id="toast" class="gameToast"></div>
+      <canvas id="canvas" style="z-index: 0; background-color: #232323;">
+        Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
+      </canvas>
+      <canvas id="firework" style="z-index: 1;width: 640px;height: 480px;">
+      </canvas>
+      Loading...
+    </div>
+  </div>
+  <div class="col-md-5">
+
+    <div id="sidebar">
+      <h2>Outrun!</h2>
+      <table id="controls" style="margin-right:20px">
+        <tr><td id="fps" colspan="2" align="right"></td></tr>
+      </table>
+      <form action="index.php" method="GET" id="settingsForm" name="settingsForm" >
+        <div>
+          <select id="lanes" name="lanes">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option selected>4</option>
+          </select>
+        </div>
+<div style="margin: 0 0 20px 0;">
+  <label for="roadWidth">汽車尺寸(<span id="currentRoadWidth"></span>) :</label>
+  <input id="roadWidth" name="roadWidth" type='range' min='500' max='3000' title="integer (500-3000)" >
+
+
+  <label for="totalCars">汽車總數(<span id="currenttotalCars"></span>) :</label></th>
+  <input id="totalCars" name="totalCars" type='range' min='1' max='200' title="integer (0-200)" >
+
+
+
+
+  <label for="maxSpeed">最大速度(<span id="currentmaxSpeed"></span>) :</label></th>
+  <input id="maxSpeed" name="maxSpeed" type='range' min='1' max='6000' title="integer (0-6000)" >
+
+
+  <label for="maxTime">關卡時間(<span id="currentmaxTime"></span>) :</label></th>
+  <input id="maxTime" name="maxTime" type='range' min='3' max='180' title="integer (0-6000)" >
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-6">
+    <input type="button" id="startbutton" value="開始遊戲" class="btn btn-primary btn-block">
+    <input type="button" id="restartbutton" onclick="history.go(0)" value="重新開始" class="btn btn-primary btn-block">
+  </div>
+  <div class="col-md-6">
+    <input type="button" id="fullscreen" value="全螢幕" class="btn btn-primary btn-block">
+  </div>
+  <div class="col-md-12">
+    <span id="mute"></span>
+  </div>
+</div>
+          <!-- <input type="button" value="Previous Level" onclick="previousLevel();" class="btn btn-primary" style="margin-left:60px;"> -->
+          <!-- ***************************************************************** -->
+          <!-- <input type="button" value="Next Level" onclick="nextLevel();" class="btn btn-primary" style="margin-left:60px;">  -->
+          <!-- ***************************************************************** -->
+
+
+        <div style="display:none">
+          <select id="backgroundImg" name="backgroundImg" style="border: 1;color: black;background: transparent;font-size: 10px;font-weight: bold;padding: 2px 10px;width: 100px; *width: 80px;*background: #58B14C;-webkit-appearance: none;">
+            <option value="background1">background1</option>
+            <option value="background2">background2</option>
+            <option value="background3">background3</option>
+            <option value="background4">background4</option>
+            <option value="background5">background5</option>
+          </select>
+        </div>
+        <div style="display:none">
+          <select id="sprites" name="sprites" style="border: 1;color: black;background: transparent;font-size: 10px;font-weight: bold;padding: 2px 10px;width: 100px; *width: 80px;*background: #58B14C;-webkit-appearance: none;">
+            <option value="sprites1">sprites1</option>
+            <option value="sprites2">sprites2</option>
+            <option value="sprites3">sprites3</option>
+            <option value="sprites4">sprites4</option>
+            <option value="sprites5">sprites5</option>
+          </select>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <audio id='music'>
+    <!--<source src="music/racer.ogg">-->
+      <source id="audioSource" src="music/music1.mp3">
+      </audio>
+      <!-- Insert this line above script imports  -->
+      <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+      <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+      <script src="dist/racer.bundle.js"></script>
+        </body>
+        </html>
