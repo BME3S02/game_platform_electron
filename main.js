@@ -14,7 +14,7 @@ let addWindow;
 // Listen for app to be ready
 app.on('ready', function(){
   let webHost = express();
-  webHost.use(express.static('static'));
+  webHost.use(express.static(__dirname + '/static'));
   webHost.listen(5000);
 
   // Create new window
