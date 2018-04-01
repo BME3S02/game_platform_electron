@@ -1,3 +1,4 @@
+const express = require('express');
 const electron = require('electron');
 const path = require('path');
 const url = require('url');
@@ -12,14 +13,14 @@ let addWindow;
 
 // Listen for app to be ready
 app.on('ready', function(){
+  let webHost = express();
+  webHost.use(express.static('static'));
+  webHost.listen(5000);
+
   // Create new window
-  mainWindow = new BrowserWindow({frame: true, width: 1170, height: 570, minWidth: 1170, minHeight: 570, resizable: false});
+  mainWindow = new BrowserWindow({frame: true, width: 1170, height: 570, minWidth: 1170, minHeight: 570, resizable: true});
   // Load html in window
-  mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes:true
-  }));
+  mainWindow.loadURL("http://localhost:5000/index.html");
   // Quit app when closed
   mainWindow.on('closed', function(){
     app.quit();
