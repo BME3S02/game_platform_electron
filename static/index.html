@@ -25,6 +25,9 @@
     <link href="css/freelancer.min.css" rel="stylesheet">
 	<link href="modal.css" rel="stylesheet">
 	
+	<!-- load module for electron -->
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
 	<!-- Custom javascript -->
 	<script src="./getjson.js"></script>
 	<script src="./socket.js"></script>
@@ -289,6 +292,8 @@
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
 
+	<!-- unload module for electron -->
+	<script>if (window.module) module = window.module;</script>
   </body>
 
 </html>
