@@ -7,3 +7,6 @@
 [submodule "static/games/javascript-racer"]
 	path = static/games/javascript-racer
 	url = git@github.com:BME3S02/game_platform_racer.git
+[submodule "static/games/javascript-racer-2"]
+	path = static/games/javascript-racer-2
+	url = git@github.com:bme3s02/game_platform_racer.git
