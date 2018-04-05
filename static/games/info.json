@@ -8,6 +8,22 @@
 		}
 	},
 	{
+		"Name": "Outrun",
+		"url": "./games/javascript-racer-2",
+		"icon" : "./games/javascript-racer-2/icon.png",
+		"metadata":{
+			"tags": [ "Reaction", "Finger" ]
+		}
+	},
+	{
+		"Name": "Outrun",
+		"url": "./games/javascript-racer-3",
+		"icon" : "./games/javascript-racer-3/icon.png",
+		"metadata":{
+			"tags": [ "Reaction", "Finger" ]
+		}
+	},
+	{
 		"Name": "Pong",
 		"url": "./games/javascript-pong",
 		"icon" : "./games/javascript-pong/icon.png",
