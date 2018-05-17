@@ -61,3 +61,6 @@ typings/
 .next
 
 release-builds/
+
+.DS_Store
+Thumbs.db
