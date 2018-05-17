@@ -38,5 +38,13 @@
 		"metadata":{
 			"tags": [ "Continue Force", "Reaction"]
 		}
+	},
+	{
+		"Name": "Bubble",
+		"url":"./games/javascript-bubble",
+		"icon" : "./games/javascript-bubble/icon.png",
+		"metadata":{
+			"tags": [ "Continue Force" ]
+		}
 	}
 ]
