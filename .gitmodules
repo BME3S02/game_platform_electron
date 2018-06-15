@@ -19,3 +19,11 @@
 [submodule "static/games/javascript-bubble"]
 	path = static/games/javascript-bubble
 	url = git@github.com:BME3S02/game_platform_bubble.git
+[submodule "static/games/javascript-racer-4"]
+	path = static/games/javascript-racer-4
+	url = git@github.com:bme3s02/game_platform_racer.git
+	branch = v4
+[submodule "static/games/javascript-racer-5"]
+	path = static/games/javascript-racer-5
+	url = git@github.com:bme3s02/game_platform_racer.git
+	branch = v5
